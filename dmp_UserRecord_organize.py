@@ -1,3 +1,5 @@
+# 从json中整理出DMP用户信息表
+
 # 使用模块re,codecs,csv
 
 # 函数：从txt数据文件读入数据
