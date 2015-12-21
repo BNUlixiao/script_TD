@@ -64,6 +64,13 @@ def writer_csv(org,secret,phone,name):
 input_filename = input('txt数据文件路径：')
 outcome_filename = input('导出csv文件路径：')
 
+# 增加默认导出路径
+if outcome_filename == '':
+    outcome_filename = input_filename[:-4] + '.csv'
+    print("使用默认导出路径：",outcome_filename)
+else:
+    pass
+
 # 从txt文件读入数据
 org,secret,phone,name = Get_data_From_file(input_filename)
 
