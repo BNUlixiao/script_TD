@@ -12,15 +12,18 @@ def Get_data_From_file(input_filename):
     secret,totalcnt,validcnt = [],[],[]
 
     for line in DMP_realtime:
-        secret.append(re.findall('"secret" : "([a-zA-Z0-9]*)"',line)[0])
+        if len(re.findall('"secret" : "([^"]*)"',line)):
+                secret.append(re.findall('"secret" : "([^"]*)"',line)[0])
+        else:
+                secret.append('no name')
         
-        if len(re.findall('"totalcnt" : ([a-zA-Z0-9]*)[,|\s]',line)):
-                totalcnt.append(int(re.findall('"totalcnt" : ([a-zA-Z0-9]*)[,|\s]',line)[0]))
+        if len(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line)):
+                totalcnt.append(int(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line)[0]))
         else:
                 totalcnt.append(0)
                 
-        if len(re.findall('"validcnt" : ([a-zA-Z0-9]*)\s',line)):
-                validcnt.append(int(re.findall('"validcnt" : ([a-zA-Z0-9]*)\s',line)[0]))
+        if len(re.findall('"validcnt" : ([0-9]*)\s',line)):
+                validcnt.append(int(re.findall('"validcnt" : ([0-9]*)\s',line)[0]))
         else:
                 validcnt.append(0)
     
