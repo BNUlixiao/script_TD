@@ -17,13 +17,13 @@ def Get_data_From_file(input_filename):
         else:
                 secret.append('no name')
         
-        if len(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line)):
-                totalcnt.append(int(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line)[0]))
+        if len(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line.lower())):
+                totalcnt.append(int(re.findall('"totalcnt" : ([0-9]*)[,|\s]',line.lower())[0]))
         else:
                 totalcnt.append(0)
                 
-        if len(re.findall('"validcnt" : ([0-9]*)\s',line)):
-                validcnt.append(int(re.findall('"validcnt" : ([0-9]*)\s',line)[0]))
+        if len(re.findall('"validcnt" : ([0-9]*)\s',line.lower())):
+                validcnt.append(int(re.findall('"validcnt" : ([0-9]*)\s',line.lower())[0]))
         else:
                 validcnt.append(0)
     
